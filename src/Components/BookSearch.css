@@ -1,0 +1,50 @@
+.booksHolder{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.booksHolder > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(179, 188, 196);
+  border-radius: 5px;
+  margin:5px;
+  padding:10px;
+  max-width:3in;
+  max-height: 4in;
+}
+.booksHolder  img{
+  flex: 0 1; 
+  max-height: 1.5in;
+  object-fit: contain; 
+}
+
+.booksHolder .bottomRow{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex: 0 0;
+}
+.bookTitle{    
+  word-break: break-all;  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+.booksHolder > div.likedStatus{
+  background-color: rgb(241, 224, 228);
+}
+.pageControls{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.pageControls > *{
+  margin-inline: 10px;
+}
+.bookDescription{
+  flex: 1 1;
+  overflow-y: auto;
+}
