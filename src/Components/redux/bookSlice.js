@@ -22,27 +22,27 @@ export const bookSlice = createSlice({
   initialState: {
     likedBooks: {},
     likedBooksCache: [],
-    allBooks: { 
+    allBooks: {
       books: []
     },
     loadingBooks: false,
-    page:1,
+    page: 1,
   },
   reducers: {
     //keep an object of likedbooks based on their id, and toggle its value
     toggleWishlisted: (state, action) => {
       const favBook = state.likedBooks[action.payload]
-      if (favBook) { delete state.likedBooks[action.payload];return }
-      if (!favBook) { state.likedBooks[action.payload] = action.payload;return }
+      if (favBook) { delete state.likedBooks[action.payload]; return }
+      if (!favBook) { state.likedBooks[action.payload] = action.payload; return }
     },
-    clearFavoriteCache:(state)=>{
+    clearFavoriteCache: (state) => {
       state.likedBooksCache = []
     },
-    incrementPage:(state)=>{
-      state.page+=1
+    incrementPage: (state) => {
+      state.page += 1
     },
-    decrementPage:(state)=>{
-      if (state.page > 1){
+    decrementPage: (state) => {
+      if (state.page > 1) {
         state.page -= 1
       }
     }
@@ -52,7 +52,7 @@ export const bookSlice = createSlice({
     builder.addCase(fetchBookData.pending, (state, action) => {
       state.loadingBooks = true;
     })
-    
+
     builder.addCase(fetchBookData.fulfilled, (state, action) => {
       state.loadingBooks = false;
       console.log(state.bookSlice)
@@ -65,7 +65,7 @@ export const bookSlice = createSlice({
     })
 
     builder.addCase(fetchSingleBook.fulfilled, (state, action) => {
-      if (state.likedBooksCache.every((item)=>{return item.id !== action.payload.id})){state.likedBooksCache.push(action.payload)}
+      if (state.likedBooksCache.every((item) => { return item.id !== action.payload.id })) { state.likedBooksCache.push(action.payload) }
     })
     builder.addCase(fetchSingleBook.rejected, (state, action) => {
       console.log(action.payload)

@@ -1,14 +1,16 @@
 import { Link, Outlet } from "react-router-dom";
-
+import "./Layout.css"
 export default function Layout() {
 
   return (
     <>
-      <div>
-        <div> Search Book </div>
-        <Link to="/">Home</Link>
-        <Link to="/favorites" key="keyToRerender">Favorites</Link>
+    <div className="headerContainer">
+        <h2> Search Book </h2>
+      <div className="linksContainer">
+        <Link to="/"><h3>Home</h3></Link>
+        <Link to="/favorites" key="keyToRerender"><h3>Favorites</h3></Link>
       </div>
+    </div>
       <Outlet />
     </>
   )
