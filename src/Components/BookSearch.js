@@ -47,8 +47,7 @@ function BookSearch() {
         {useSelector((state) => (state.bookSlice.allBooks.books) ?
           renderBooks(state) : null)
         }
-      </div>
-      <div className="pageControls">
+      <span className="pageControls">
         <PaginationButtons 
         dispatch={dispatch} 
         page={page} 
@@ -56,7 +55,8 @@ function BookSearch() {
         setPage={setPage}
         clickAction = {()=>{debounce(() => dispatch(fetchBookData(searchQuery)))}}
         />
-       </div>
+       </span>
+      </div>
     </div>
   )
 }
