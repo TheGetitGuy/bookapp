@@ -3,8 +3,8 @@ body,:root{
     padding: 0;
     width: 100%;
     height: 100%;
-    --purple: rgb(95, 95, 168);
-    background: rgb(0, 0, 0);
+    --purple: rgb(143, 143, 168);
+    background: rgb(216, 216, 216);
 }
 
 .headerContainer{ 
@@ -17,8 +17,8 @@ body,:root{
 .linksContainer{
     display: flex;
     width:100%;
-    justify-content: space-around;
-    border-bottom: solid 2px black;
+    max-width: 5in;
+    justify-content: space-around; 
 }
 .headerContainer > h2{
     margin: 10px;
@@ -32,4 +32,4 @@ body,:root{
 .linksContainer a:hover{
     transform: scale(1.2);
     transform: translate(100px 100px);
-}
+} 

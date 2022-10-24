@@ -1,7 +1,10 @@
 export default function Book({ state, element, handleClick }) {
 
   return (
-    <div className={state.likedBooks[element.id] ? "likedStatus" : ""}>
+    <div onClick={(e) => {
+      e.preventDefault();
+      return handleClick(element.id)
+    }} className={state.likedBooks[element.id] ? "likedStatus" : ""}>
       <h3 className="bookTitle"> {element.volumeInfo.title}</h3 >
       <img alt={element.volumeInfo.title} src={element.volumeInfo.imageLinks?.thumbnail}></img>
       <div className="bookDescription">
@@ -11,16 +14,12 @@ export default function Book({ state, element, handleClick }) {
         <span>
           {element.volumeInfo.publishedDate ? <h5>Date Published: {element.volumeInfo.publishedDate}</h5> : null}
         </span>
+      </div>
+      <div className="bottomDescription">
         {element.volumeInfo.description}
       </div>
       <div className="bottomRow">
-      <button onClick={(e) => {
-        e.preventDefault();
-        return handleClick(element.id)
-      }}>
-        like
-      </button>
-        {state.likedBooks[element.id] ? <div className="likedStatus">isLiked</div> : null}   
+        {state.likedBooks[element.id] ? <div className="likedStatus">isLiked</div> : null}
       </div>
     </div>)
 }

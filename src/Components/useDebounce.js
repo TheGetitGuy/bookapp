@@ -6,5 +6,6 @@ export default function useDebounce(timeToDelay){
   useEffect(()=>{
     return( ()=>{ clearTimeout(timer) } )
   },[timer])
-  return debounce
+  
+  return [debounce, timer]
 }
